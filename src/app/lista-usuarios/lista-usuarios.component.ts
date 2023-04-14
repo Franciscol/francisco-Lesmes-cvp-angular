@@ -26,4 +26,21 @@ export class ListaUsuariosComponent implements OnInit {
     );
   }
 
+  eliminarUsuario(id: number): void {
+    if (confirm('¿Estás seguro de que quieres eliminar este usuario?')) {
+      this.usuariosService.eliminarUsuario(id).subscribe(
+        response => {
+          console.log(response);
+          // Actualizar la lista de usuarios
+          this.listarUsuarios();
+        },
+        error => {
+          console.log(error);
+          // Aquí puedes agregar cualquier acción que desees que ocurra si ocurre un error al eliminar el usuario
+        }
+      );
+    }
+  }
+  
+
 }

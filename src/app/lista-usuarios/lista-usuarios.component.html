@@ -1,29 +1,27 @@
-<div class="container"><br><br>
-    <h1><i>Listado de usuarios Gorest</i></h1><br><br>
-  
-    <table class="table">
-      <thead>
-        <tr>
-          <th>ID</th>
-          <th>Nombre</th>
-          <th>Email</th>
-          <th>Género</th>
-          <th>Estado</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let usuario of usuarios">
-          <td>
-            <a [routerLink]="['/usuarios', usuario.id]">{{ usuario.id }}</a>
-          </td>
-          <td>{{ usuario.name }}</td>
-          <td>{{ usuario.email }}</td>
-          <td>{{ usuario.gender }}</td>
-          <td>{{ usuario.status }}</td>
-        </tr>
-      </tbody>
-    </table>
-  
-    <button class="btn btn-primary" [routerLink]="['/crear-usuario']">Crear usuario</button>
-  </div>
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Correo electrónico</th>
+        <th>Género</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let usuario of usuarios">
+        <td>{{usuario.id}}</td>
+        <td>{{usuario.name}}</td>
+        <td>{{usuario.email}}</td>
+        <td>{{usuario.gender}}</td>
+        <td>{{usuario.status}}</td>
+        <td>
+          <a [routerLink]="['/usuarios', usuario.id]" class="btn btn-primary btn-sm mr-1">Ver</a>
+          <a [routerLink]="['/usuarios/editar', usuario.id]" class="btn btn-primary btn-sm mr-1">Editar</a>
+          <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(usuario.id)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
   

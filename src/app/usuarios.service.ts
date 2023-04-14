@@ -45,4 +45,9 @@ export class UsuariosService {
     const url = `${this.apiUrl}/${id}`;
     return this.http.get<Usuario>(url);
   }
+
+  eliminarUsuario(id: number): Observable<any> {
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${this.token}`);
+    return this.http.delete(`${this.apiUrl}/${id}`, { headers });
+  }
 }
