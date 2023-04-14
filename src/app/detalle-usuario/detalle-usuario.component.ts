@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Usuario } from '../usuarios';
 import { UsuariosService } from '../usuarios.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-detalle-usuario',
@@ -13,8 +14,10 @@ export class DetalleUsuarioComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private router: Router
   ) { }
+
 
   ngOnInit(): void {
 
@@ -26,5 +29,9 @@ export class DetalleUsuarioComponent implements OnInit {
       this.usuario = usuario;
     });
     
+  }
+
+  volverAListarUsuarios() {
+    this.router.navigate(['/lista-usuarios']);
   }
 }
