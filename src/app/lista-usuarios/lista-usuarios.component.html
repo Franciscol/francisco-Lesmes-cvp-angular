@@ -18,7 +18,6 @@
         <td>{{usuario.status}}</td>
         <td>
           <a [routerLink]="['/usuarios', usuario.id]" class="btn btn-primary btn-sm mr-1">Ver</a>
-          <a [routerLink]="['/usuarios/editar', usuario.id]" class="btn btn-primary btn-sm mr-1">Editar</a>
           <button class="btn btn-danger btn-sm" (click)="eliminarUsuario(usuario.id)">Eliminar</button>
         </td>
       </tr>
